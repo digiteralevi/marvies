@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvie's Beauty Lounge | Salon, Spa & Tattoo Studio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#C5A059',
+                            light: '#E5C989',
+                            dark: '#9A7936',
+                        },
+                        botanical: {
+                            DEFAULT: '#2D5A27',
+                            light: '#427A3A',
+                            dark: '#1B3B1A',
+                        },
+                        cream: {
+                            DEFAULT: '#FDFBF7',
+                            dark: '#F4EFEB',
+                            card: '#FFFDF9',
+                        },
+                        slate: {
+                            muted: '#5B7083',
+                            dark: '#2C3A47',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #C5A059 0%, #E5C989 50%, #9A7936 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #C5A059 0%, #D4AF37 50%, #B38E42 100%);
+        }
+        .botanical-gradient {
+            background: linear-gradient(135deg, #1B3B1A 0%, #2D5A27 100%);
+        }
+        .cream-glass {
+            background: rgba(253, 251, 247, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .gold-shadow {
+            box-shadow: 0 10px 30px -5px rgba(197, 160, 89, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-cream font-sans text-slate-dark antialiased selection:bg-gold selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-botanical-dark text-cream text-xs sm:text-sm py-2 px-4 text-center tracking-wider font-medium flex justify-between items-center max-w-7xl mx-auto rounded-b-lg">
+        <div class="hidden sm:flex items-center space-x-2">
+            <i class="fa-solid fa-location-dot text-gold"></i>
+            <span>Visit Our Newly Opened Salon & Spa Studio</span>
+        </div>
+        <div class="mx-auto sm:mx-0 flex items-center space-x-4">
+            <span><i class="fa-solid fa-phone text-gold mr-1"></i> Call / Text: <strong class="text-gold">09176334415</strong></span>
+            <span class="hidden md:inline">|</span>
+            <span class="hidden md:inline"><i class="fa-solid fa-clock text-gold mr-1"></i> Mon-Sun: 9:00 AM - 8:00 PM</span>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 cream-glass border-b border-gold/20 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 rounded-full bg-botanical flex items-center justify-center border-2 border-gold shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-leaf text-gold text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-serif text-2xl font-bold tracking-tight text-botanical-dark block leading-none">MARVIE'S</span>
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-gold-dark font-semibold block mt-1">Beauty Lounge</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-sm tracking-wide">
+                    <a href="#services" class="hover:text-gold transition-colors py-2 border-b-2 border-transparent hover:border-gold">Services & Rates</a>
+                    <a href="#about" class="hover:text-gold transition-colors py-2 border-b-2 border-transparent hover:border-gold">Our Story</a>
+                    <a href="#portfolio" class="hover:text-gold transition-colors py-2 border-b-2 border-transparent hover:border-gold">Portfolio Showcase</a>
+                    <a href="#testimonials" class="hover:text-gold transition-colors py-2 border-b-2 border-transparent hover:border-gold">Client Feedback</a>
+                    <a href="#contact" class="hover:text-gold transition-colors py-2 border-b-2 border-transparent hover:border-gold">Location & Contact</a>
+                </nav>
+
+                <!-- Header CTA Action -->
+                <div class="hidden lg:flex items-center space-x-3">
+                    <button onclick="openMessengerModal()" class="px-4 py-2.5 text-xs uppercase font-bold text-slate-dark bg-slate-100 hover:bg-slate-200 rounded-full transition-colors flex items-center space-x-2">
+                        <i class="fa-brands fa-facebook-messenger text-blue-600 text-sm"></i>
+                        <span>Inquire</span>
+                    </button>
+                    <button onclick="openBookingModal()" class="px-5 py-2.5 text-xs uppercase font-bold text-white gold-gradient-bg rounded-full hover:shadow-lg hover:opacity-95 transition-all transform hover:-translate-y-0.5 gold-shadow">
+                        <i class="fa-regular fa-calendar-check mr-1.5"></i> Book Appointment
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-dark hover:text-gold focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-gold/20 px-4 pt-3 pb-6 space-y-3">
+            <a href="#services" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-medium text-slate-dark hover:bg-gold/10 hover:text-gold">Services & Pricing</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-medium text-slate-dark hover:bg-gold/10 hover:text-gold">About Marvie & Kurt</a>
+            <a href="#portfolio" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-medium text-slate-dark hover:bg-gold/10 hover:text-gold">Portfolio Gallery</a>
+            <a href="#testimonials" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-medium text-slate-dark hover:bg-gold/10 hover:text-gold">Client Reviews</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md font-medium text-slate-dark hover:bg-gold/10 hover:text-gold">Contact Us</a>
+            <div class="pt-2 flex flex-col space-y-2">
+                <button onclick="openBookingModal(); toggleMobileMenu();" class="w-full py-3 text-center text-xs uppercase font-bold text-white gold-gradient-bg rounded-lg">
+                    Book Appointment Now
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-cream-dark py-12 lg:py-20">
+        <div class="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Hero Banner Text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-botanical/10 border border-botanical/20 text-botanical font-semibold text-xs uppercase tracking-widest">
+                        <i class="fa-solid fa-sparkles text-gold"></i>
+                        <span>Relax • Rejuvenate • Renew</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-botanical-dark leading-tight">
+                        Your Complete Haven for <br class="hidden sm:inline">
+                        <span class="gold-gradient-text">Beauty, Wellness & Art</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-muted max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Experience the ultimate pampering at <strong>Marvie's Beauty Lounge</strong>. From Marvie's sought-after signature body massage and silky hair rebonding services to custom fine-line artistic tattoos by Kurt — we deliver premium, affordable quality in a serene, welcoming studio.
+                    </p>
+
+                    <!-- Features Pills -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2 text-xs sm:text-sm font-medium text-slate-dark">
+                        <div class="flex items-center space-x-2 bg-white px-3.5 py-2 rounded-full border border-gold/30 shadow-sm">
+                            <i class="fa-solid fa-hands-holding-circle text-gold"></i>
+                            <span>Marvie's Signature Massage</span>
+                        </div>
+                        <div class="flex items-center space-x-2 bg-white px-3.5 py-2 rounded-full border border-gold/30 shadow-sm">
+                            <i class="fa-solid fa-wand-magic-sparkles text-gold"></i>
+                            <span>Hair Rebond & Treatments</span>
+                        </div>
+                        <div class="flex items-center space-x-2 bg-white px-3.5 py-2 rounded-full border border-gold/30 shadow-sm">
+                            <i class="fa-solid fa-pen-nib text-gold"></i>
+                            <span>Fine Line Tattoo by Kurt</span>
+                        </div>
+                    </div>
+
+                    <!-- Call To Action Buttons -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <button onclick="openBookingModal()" class="w-full sm:w-auto px-8 py-4 gold-gradient-bg text-white rounded-full font-bold text-sm tracking-wider uppercase shadow-lg hover:shadow-xl hover:opacity-95 transition-all transform hover:-translate-y-0.5 gold-shadow flex items-center justify-center space-x-2">
+                            <span>Book Your Session</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 bg-white border border-slate-300 text-slate-dark hover:border-gold hover:text-gold rounded-full font-bold text-sm tracking-wider uppercase transition-all flex items-center justify-center space-x-2">
+                            <i class="fa-regular fa-images"></i>
+                            <span>View Works</span>
+                        </a>
+                    </div>
+
+                    <!-- Direct Hotline Badge -->
+                    <div class="pt-2 text-xs text-slate-muted flex items-center justify-center lg:justify-start space-x-2">
+                        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                        <span>Accepting bookings today! Call/Text: <strong class="text-slate-dark font-bold">09176334415</strong></span>
+                    </div>
+                </div>
+
+                <!-- Right Hero Image Grid Showcase -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Main Card -->
+                        <div class="relative bg-white p-3 rounded-3xl shadow-xl border border-gold/20 transform rotate-1 transition-transform hover:rotate-0 duration-300">
+                            <div class="relative h-80 sm:h-96 rounded-2xl overflow-hidden bg-slate-100 flex items-center justify-center">
+                                <img src="18711b3b-2586-47f2-b8d0-9db9d98d9ca9.jfif" alt="Marvie's Beauty Lounge Logo and Branding" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
+                                    <span class="text-xs uppercase tracking-widest text-gold-light font-semibold">Welcome to Our Lounge</span>
+                                    <h3 class="font-serif text-2xl font-bold">Marvie's Beauty Lounge</h3>
+                                    <p class="text-xs text-cream/80 mt-1">Comfortable, relaxing place served by courteous staff</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Stat Badge 1 -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-lg border border-gold/30 flex items-center space-x-3 hidden sm:flex">
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-slate-dark">100% Client Satisfaction</p>
+                                <p class="text-[11px] text-slate-muted">Sulit ang bayad garantiya</p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Stat Badge 2 -->
+                        <div class="absolute -top-4 -right-4 bg-botanical text-white p-3.5 rounded-2xl shadow-lg border border-gold/40 text-center">
+                            <i class="fa-solid fa-gem text-gold text-xl block mb-1"></i>
+                            <span class="text-[11px] font-bold tracking-wider uppercase block">Signature Massage</span>
+                            <span class="text-[10px] text-gold-light">by Marvie</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Philosophy / About Joint Duo Section -->
+    <section id="about" class="py-16 bg-cream border-y border-gold/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-dark">Family Passion & Craftsmanship</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-botanical-dark mt-2">Meet Marvie & Kurt</h2>
+                <div class="w-16 h-0.5 bg-gold mx-auto my-4"></div>
+                <p class="text-slate-muted text-sm sm:text-base leading-relaxed">
+                    Marvie Erto has long been praised for her therapeutic massage touch and high-quality hair care services. Having recently opened her dedicated lounge, she combined her expertise in salon and relaxing spa treatments with her son Kurt's artistic talent in fine line body tattooing.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Marvie Card -->
+                <div class="bg-cream-card rounded-2xl p-6 sm:p-8 border border-gold/20 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="w-12 h-12 rounded-xl bg-botanical/10 text-botanical flex items-center justify-center text-xl mb-4 group-hover:bg-botanical group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-spa"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-botanical-dark">Marvie Erto</h3>
+                    <p class="text-xs font-semibold text-gold-dark uppercase tracking-wider mb-3">Salon Specialist & Massage Therapist</p>
+                    <p class="text-xs sm:text-sm text-slate-muted leading-relaxed">
+                        Master behind Marvie's signature body massage, hair reconditioning, silk re-bonding, and overall hair care. Her focus is giving clients smooth, healthy hair and complete physical relaxation at affordable rates.
+                    </p>
+                </div>
+
+                <!-- Kurt Card -->
+                <div class="bg-cream-card rounded-2xl p-6 sm:p-8 border border-gold/20 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="w-12 h-12 rounded-xl bg-slate-slate-muted/10 text-slate-dark flex items-center justify-center text-xl mb-4 group-hover:bg-slate-dark group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-slate-dark">Kurt Erto</h3>
+                    <p class="text-xs font-semibold text-gold-dark uppercase tracking-wider mb-3">Fine Line Tattoo Artist</p>
+                    <p class="text-xs sm:text-sm text-slate-muted leading-relaxed">
+                        Specializing in delicate fine-line tattoos, minimalist red & black ink line art, rib ribbons, custom quotes, and body art executed with strict hygiene, precision, and smooth aesthetic detail.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Services & Rates Section -->
+    <section id="services" class="py-16 bg-cream-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-dark">Tailored Pampering & Art</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-botanical-dark mt-1">Our Featured Services</h2>
+                <p class="text-slate-muted text-sm mt-2">Quality beauty & relaxation treatments crafted to fit your lifestyle and budget.</p>
+            </div>
+
+            <!-- Tab Buttons for Service Categories -->
+            <div class="flex justify-center mb-10">
+                <div class="inline-flex p-1.5 rounded-full bg-white border border-gold/30 shadow-sm space-x-1 sm:space-x-2 text-xs sm:text-sm font-semibold">
+                    <button onclick="switchServiceTab('all')" id="tab-btn-all" class="service-tab-btn px-4 sm:px-6 py-2.5 rounded-full transition-all bg-botanical text-white shadow">All Services</button>
+                    <button onclick="switchServiceTab('salon')" id="tab-btn-salon" class="service-tab-btn px-4 sm:px-6 py-2.5 rounded-full transition-all text-slate-muted hover:text-botanical">Hair & Salon</button>
+                    <button onclick="switchServiceTab('spa')" id="tab-btn-spa" class="service-tab-btn px-4 sm:px-6 py-2.5 rounded-full transition-all text-slate-muted hover:text-botanical">Spa & Massage</button>
+                    <button onclick="switchServiceTab('tattoo')" id="tab-btn-tattoo" class="service-tab-btn px-4 sm:px-6 py-2.5 rounded-full transition-all text-slate-muted hover:text-botanical">Tattoo Studio</button>
+                </div>
+            </div>
+
+            <!-- Service Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="services-grid">
+
+                <!-- Service 1: Rebond -->
+                <div class="service-card salon bg-white rounded-2xl p-6 border border-gold/20 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-amber-50 text-amber-800 rounded-full text-[11px] font-bold uppercase tracking-wider border border-amber-200">Hair Care</span>
+                            <span class="font-serif font-bold text-lg text-botanical-dark">Affordable Rates</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-slate-dark mb-2">Signature Hair Rebonding</h3>
+                        <p class="text-slate-muted text-xs sm:text-sm leading-relaxed mb-4">
+                            Transform unruly or frizzy hair into silky, smooth, straight locks with long-lasting shine and deep chemical-care repair.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-dark mb-6">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Silk protein reconditioning</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Blow dry & shine lock finish</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Tailored for all hair lengths</li>
+                        </ul>
+                    </div>
+                    <button onclick="openBookingModal('Signature Hair Rebonding')" class="w-full py-2.5 text-xs font-bold uppercase tracking-wider text-botanical border border-botanical hover:bg-botanical hover:text-white rounded-xl transition-colors">
+                        Select & Book
+                    </button>
+                </div>
+
+                <!-- Service 2: Hair Treatment & Color -->
+                <div class="service-card salon bg-white rounded-2xl p-6 border border-gold/20 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-amber-50 text-amber-800 rounded-full text-[11px] font-bold uppercase tracking-wider border border-amber-200">Salon Styling</span>
+                            <span class="font-serif font-bold text-lg text-botanical-dark">Popular</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-slate-dark mb-2">Hair Color & Keratin Treatment</h3>
+                        <p class="text-slate-muted text-xs sm:text-sm leading-relaxed mb-4">
+                            Vibrant full coloring, balayage highlights, or deep keratin nourishment to leave your hair soft, manageable, and vibrant.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-dark mb-6">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Custom tone matching</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Organic botanical treatments</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Split-end therapy</li>
+                        </ul>
+                    </div>
+                    <button onclick="openBookingModal('Hair Color & Keratin Treatment')" class="w-full py-2.5 text-xs font-bold uppercase tracking-wider text-botanical border border-botanical hover:bg-botanical hover:text-white rounded-xl transition-colors">
+                        Select & Book
+                    </button>
+                </div>
+
+                <!-- Service 3: Signature Massage -->
+                <div class="service-card spa bg-white rounded-2xl p-6 border-2 border-gold shadow-md hover:shadow-lg transition-all flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-gold text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-bl-lg">
+                        Marvie's Specialty
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-emerald-50 text-emerald-800 rounded-full text-[11px] font-bold uppercase tracking-wider border border-emerald-200">Spa & Wellness</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-botanical-dark mb-2">Signature Massage by Marvie</h3>
+                        <p class="text-slate-muted text-xs sm:text-sm leading-relaxed mb-4">
+                            A relaxing blend of Swedish, Shiatsu, and traditional hilot techniques designed to melt muscle tension, stress, and body fatigue.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-dark mb-6">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Essential soothing aromatherapy oils</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Targeted back & shoulder relief</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Relaxing studio ambiance</li>
+                        </ul>
+                    </div>
+                    <button onclick="openBookingModal('Signature Massage by Marvie')" class="w-full py-2.5 text-xs font-bold uppercase tracking-wider text-white gold-gradient-bg rounded-xl hover:opacity-90 transition-opacity">
+                        Book Signature Massage
+                    </button>
+                </div>
+
+                <!-- Service 4: Fine Line Tattoo -->
+                <div class="service-card tattoo bg-white rounded-2xl p-6 border border-gold/20 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-slate-100 text-slate-800 rounded-full text-[11px] font-bold uppercase tracking-wider border border-slate-200">Tattoo Studio</span>
+                            <span class="font-serif font-bold text-lg text-slate-dark">by Kurt</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-slate-dark mb-2">Fine Line & Minimalist Tattoos</h3>
+                        <p class="text-slate-muted text-xs sm:text-sm leading-relaxed mb-4">
+                            Dainty bows, minimalist linework, script quotes, or delicate symbols crafted with sterile equipment and needle precision.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-dark mb-6">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Single needle / fine line technique</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Black & specialty color inks (Red/Pastels)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Free design consultation</li>
+                        </ul>
+                    </div>
+                    <button onclick="openBookingModal('Fine Line Tattoo by Kurt')" class="w-full py-2.5 text-xs font-bold uppercase tracking-wider text-slate-dark border border-slate-700 hover:bg-slate-800 hover:text-white rounded-xl transition-colors">
+                        Consult & Book Tattoo
+                    </button>
+                </div>
+
+                <!-- Service 5: Custom Tattoo -->
+                <div class="service-card tattoo bg-white rounded-2xl p-6 border border-gold/20 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-slate-100 text-slate-800 rounded-full text-[11px] font-bold uppercase tracking-wider border border-slate-200">Custom Art</span>
+                            <span class="font-serif font-bold text-lg text-slate-dark">By Request</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-slate-dark mb-2">Custom Tattoo Concept & Touch-Up</h3>
+                        <p class="text-slate-muted text-xs sm:text-sm leading-relaxed mb-4">
+                            Bring your custom design ideas to life or touch up existing tattoos with meticulous artistic detail and sterile hygienic practices.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-dark mb-6">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Custom stencil creation</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Aftercare guidance provided</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> High standard sanitation</li>
+                        </ul>
+                    </div>
+                    <button onclick="openBookingModal('Custom Tattoo Design')" class="w-full py-2.5 text-xs font-bold uppercase tracking-wider text-slate-dark border border-slate-700 hover:bg-slate-800 hover:text-white rounded-xl transition-colors">
+                        Inquire Custom Design
+                    </button>
+                </div>
+
+                <!-- Service 6: Full Body Pamper Package -->
+                <div class="service-card spa salon bg-white rounded-2xl p-6 border border-gold/20 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-gold/10 text-gold-dark rounded-full text-[11px] font-bold uppercase tracking-wider border border-gold/30">Combo Package</span>
+                            <span class="font-serif font-bold text-lg text-gold-dark">Best Value</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-slate-dark mb-2">Lounge Pamper Package</h3>
+                        <p class="text-slate-muted text-xs sm:text-sm leading-relaxed mb-4">
+                            Combine Marvie's signature full body massage with a hair blow-dry treatment or hair spa session for total head-to-toe refreshment.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-dark mb-6">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> 60-min Body Massage</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Hair Wash & Hair Spa</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Complimentary Refreshment</li>
+                        </ul>
+                    </div>
+                    <button onclick="openBookingModal('Lounge Pamper Package')" class="w-full py-2.5 text-xs font-bold uppercase tracking-wider text-botanical border border-botanical hover:bg-botanical hover:text-white rounded-xl transition-colors">
+                        Select Package
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Portfolio Gallery Section -->
+    <section id="portfolio" class="py-16 bg-cream border-t border-gold/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-gold-dark">Real Client Results</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-botanical-dark mt-1">Our Work Showcase</h2>
+                </div>
+                <!-- Gallery Filter Buttons -->
+                <div class="mt-4 md:mt-0 flex flex-wrap gap-2 text-xs font-semibold">
+                    <button onclick="filterGallery('all')" class="gallery-filter-btn px-4 py-2 rounded-lg bg-botanical text-white">All Works</button>
+                    <button onclick="filterGallery('hair')" class="gallery-filter-btn px-4 py-2 rounded-lg bg-white text-slate-dark border border-slate-200 hover:border-gold">Hair Rebond & Salon</button>
+                    <button onclick="filterGallery('tattoo')" class="gallery-filter-btn px-4 py-2 rounded-lg bg-white text-slate-dark border border-slate-200 hover:border-gold">Tattoos by Kurt</button>
+                    <button onclick="filterGallery('fb')" class="gallery-filter-btn px-4 py-2 rounded-lg bg-white text-slate-dark border border-slate-200 hover:border-gold">Client Feedback</button>
+                </div>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="portfolio-grid">
+                
+                <!-- Item 1: Long Shiny Rebond -->
+                <div class="gallery-item hair bg-white rounded-2xl overflow-hidden border border-gold/20 shadow-sm hover:shadow-md transition-transform duration-300 hover:-translate-y-1">
+                    <div class="relative h-72 overflow-hidden bg-slate-100">
+                        <img src="Screenshot 2026-10-21 192347.jpg" alt="Marvie Hair Rebonding Client Result" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-botanical/90 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Hair Rebonding</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-slate-dark text-sm">Silky Straight Rebond Finish</h4>
+                        <p class="text-xs text-slate-muted mt-1">Deep shine, healthy hair transformation done at Marvie's Beauty Lounge.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2: Fine Line Bow Ribbon Tattoo -->
+                <div class="gallery-item tattoo bg-white rounded-2xl overflow-hidden border border-gold/20 shadow-sm hover:shadow-md transition-transform duration-300 hover:-translate-y-1">
+                    <div class="relative h-72 overflow-hidden bg-slate-100">
+                        <img src="c0fca6bc-2394-4451-a1e2-a6667f803889.jfif" alt="Fine Line Red Ribbon Tattoo by Kurt" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-slate-800/90 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Tattoo by Kurt</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-slate-dark text-sm">Fine Line Red Bow Tattoo</h4>
+                        <p class="text-xs text-slate-muted mt-1">Delicate red line ribbon art crafted with sharp precision.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3: Short Bob Hair Styling -->
+                <div class="gallery-item hair bg-white rounded-2xl overflow-hidden border border-gold/20 shadow-sm hover:shadow-md transition-transform duration-300 hover:-translate-y-1">
+                    <div class="relative h-72 overflow-hidden bg-slate-100">
+                        <img src="795ab6a4-068d-475f-a088-731b067ffac4.jfif" alt="Hair Cut and Blow Dry Styling" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-botanical/90 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Hair Cut & Treatment</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-slate-dark text-sm">Bob Hair Cut & Reconditioning</h4>
+                        <p class="text-xs text-slate-muted mt-1">Smooth short hair cut and shine treatment session.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4: FB Messenger Feedback Screenshot -->
+                <div class="gallery-item fb bg-white rounded-2xl overflow-hidden border border-gold/20 shadow-sm hover:shadow-md transition-transform duration-300 hover:-translate-y-1">
+                    <div class="relative h-72 overflow-hidden bg-slate-900 p-2 flex items-center justify-center">
+                        <img src="f92d6aa9-895c-436b-a4a2-f194163452bd.jfif" alt="Facebook Review Screenshot" class="w-full h-full object-contain">
+                        <span class="absolute top-3 left-3 bg-blue-600/90 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase">Verified Messenger Review</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-slate-dark text-sm">"Super ganda ng hair ko 🥰"</h4>
+                        <p class="text-xs text-slate-muted mt-1">Real message from happy client after Tita Marvie's service.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-botanical-dark text-cream relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-light">Client Satisfaction</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-1 text-white">What Our Clients Say</h2>
+                <div class="w-16 h-0.5 bg-gold mx-auto my-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="bg-botanical/60 backdrop-blur p-6 rounded-2xl border border-gold/30 flex flex-col justify-between">
+                    <div>
+                        <div class="text-gold text-sm space-x-1 mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-sm italic text-cream/90 leading-relaxed">
+                            "Thank you for our beautiful hair, Marvie's 🥰 Pa book na rin kyo mga mommies sulit ang bayad Nyo!"
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-full bg-gold/20 flex items-center justify-center font-bold text-gold text-xs">
+                            SO
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Shalyn Erto Orienza</p>
+                            <p class="text-[10px] text-cream/60">Facebook Recommendation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-botanical/60 backdrop-blur p-6 rounded-2xl border border-gold/30 flex flex-col justify-between">
+                    <div>
+                        <div class="text-gold text-sm space-x-1 mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-sm italic text-cream/90 leading-relaxed">
+                            "Thankyouu so much po ulit Tita Marvie super ganda ng hair ko 🥰 Napaka mabait ng staff at relax na relax pa ako sa massage!"
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-full bg-gold/20 flex items-center justify-center font-bold text-gold text-xs">
+                            AM
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Allyssa May</p>
+                            <p class="text-[10px] text-cream/60">Verified Lounge Client</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-botanical/60 backdrop-blur p-6 rounded-2xl border border-gold/30 flex flex-col justify-between">
+                    <div>
+                        <div class="text-gold text-sm space-x-1 mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-sm italic text-cream/90 leading-relaxed">
+                            "Super linis at precise ng fine line bow tattoo na ginawa ni Kurt. Safe and sterile setup din. Babalik ako for sure!"
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/10 flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-full bg-gold/20 flex items-center justify-center font-bold text-gold text-xs">
+                            KR
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Kirsten R.</p>
+                            <p class="text-[10px] text-cream/60">Tattoo Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Map Section -->
+    <section id="contact" class="py-16 bg-cream border-t border-gold/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Contact Details Card -->
+                <div class="lg:col-span-5 bg-cream-card p-8 rounded-3xl border border-gold/30 shadow-sm space-y-6">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-gold-dark">Get In Touch</span>
+                        <h2 class="font-serif text-3xl font-bold text-botanical-dark mt-1">Visit or Contact Us</h2>
+                        <p class="text-slate-muted text-xs sm:text-sm mt-2">Walk-ins are welcome, but appointments are highly recommended to secure your preferred slot.</p>
+                    </div>
+
+                    <div class="space-y-4 pt-2 text-sm text-slate-dark">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-botanical/10 text-botanical flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-muted font-medium">Direct Phone & GCash Contact</p>
+                                <p class="font-bold text-base text-botanical-dark">09176334415</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-botanical/10 text-botanical flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-muted font-medium">Operating Hours</p>
+                                <p class="font-semibold">Monday – Sunday: 9:00 AM – 8:00 PM</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-botanical/10 text-botanical flex items-center justify-center flex-shrink-0">
+                                <i class="fa-brands fa-facebook"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-muted font-medium">Official Facebook Page</p>
+                                <p class="font-semibold">Marvie's Beauty Lounge</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex space-x-3">
+                        <button onclick="openBookingModal()" class="flex-1 py-3 bg-botanical text-white rounded-xl text-xs uppercase font-bold tracking-wider hover:bg-botanical-dark transition-colors">
+                            Book Slot Now
+                        </button>
+                        <button onclick="openMessengerModal()" class="px-4 py-3 bg-blue-600 text-white rounded-xl text-xs uppercase font-bold tracking-wider hover:bg-blue-700 transition-colors flex items-center space-x-2">
+                            <i class="fa-brands fa-facebook-messenger text-base"></i>
+                            <span>Messenger</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Studio Experience Banner -->
+                <div class="lg:col-span-7 bg-botanical text-cream p-8 sm:p-12 rounded-3xl relative overflow-hidden flex flex-col justify-center space-y-6">
+                    <div class="absolute -right-10 -bottom-10 opacity-10 text-gold text-9xl">
+                        <i class="fa-solid fa-spa"></i>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest text-gold-light font-semibold">Clean, Safe & Comfortable</span>
+                    <h3 class="font-serif text-3xl sm:text-4xl font-bold">Relaxing Studio Ambiance Guaranteed</h3>
+                    <p class="text-cream/80 text-sm leading-relaxed max-w-lg">
+                        Enjoy complimentary tea/coffee, comfortable reclining styling chairs, soothing ambiance music, and fully air-conditioned spaces while receiving expert salon and massage care.
+                    </p>
+                    <div class="pt-2 flex flex-wrap gap-4 text-xs font-semibold">
+                        <span class="bg-botanical-dark px-3.5 py-2 rounded-lg border border-gold/30"><i class="fa-solid fa-check text-gold mr-1.5"></i> Air Conditioned Studio</span>
+                        <span class="bg-botanical-dark px-3.5 py-2 rounded-lg border border-gold/30"><i class="fa-solid fa-check text-gold mr-1.5"></i> Sanitized Tools</span>
+                        <span class="bg-botanical-dark px-3.5 py-2 rounded-lg border border-gold/30"><i class="fa-solid fa-check text-gold mr-1.5"></i> Courteous Staff</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-dark text-cream/70 py-10 border-t border-gold/20 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-leaf text-gold"></i>
+                <span class="font-serif text-lg font-bold text-white tracking-widest uppercase">Marvie's Beauty Lounge</span>
+            </div>
+            <p>Salon • Spa & Signature Massage • Fine Line Tattoo Studio</p>
+            <p class="text-cream/40">© 2026 Marvie's Beauty Lounge. All rights reserved. Contact: 09176334415</p>
+        </div>
+    </footer>
+
+    <!-- Floating Messenger CTA Button -->
+    <button onclick="openMessengerModal()" class="fixed bottom-6 right-6 z-40 bg-blue-600 hover:bg-blue-700 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-transform transform hover:scale-110 group">
+        <i class="fa-brands fa-facebook-messenger text-2xl"></i>
+        <span class="absolute right-16 bg-slate-dark text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg pointer-events-none">
+            Chat on Messenger
+        </span>
+    </button>
+
+    <!-- Appointment Booking Modal WIZARD -->
+    <div id="booking-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-cream rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-gold/30 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <!-- Close Button -->
+            <button onclick="closeBookingModal()" class="absolute top-5 right-5 text-slate-muted hover:text-slate-dark text-lg p-2">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Modal Header -->
+            <div class="text-center mb-6">
+                <div class="w-10 h-10 rounded-full bg-botanical/10 text-botanical mx-auto flex items-center justify-center mb-2">
+                    <i class="fa-solid fa-calendar-check text-gold"></i>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-botanical-dark">Book Your Appointment</h3>
+                <p class="text-xs text-slate-muted mt-1">Fill out the quick details below to secure your lounge slot.</p>
+            </div>
+
+            <!-- Booking Form -->
+            <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-4 text-xs sm:text-sm">
+                <div>
+                    <label class="block font-semibold text-slate-dark mb-1">Select Primary Service *</label>
+                    <select id="modal-service-select" required class="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white focus:outline-none focus:border-gold">
+                        <option value="Signature Massage by Marvie">Signature Massage by Marvie (Spa)</option>
+                        <option value="Signature Hair Rebonding">Signature Hair Rebonding (Salon)</option>
+                        <option value="Hair Color & Keratin Treatment">Hair Color & Keratin Treatment</option>
+                        <option value="Fine Line Tattoo by Kurt">Fine Line Tattoo by Kurt</option>
+                        <option value="Custom Tattoo Design">Custom Tattoo Concept</option>
+                        <option value="Lounge Pamper Package">Lounge Pamper Package</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold text-slate-dark mb-1">Preferred Date *</label>
+                        <input type="date" required id="booking-date" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 bg-white focus:outline-none focus:border-gold">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-dark mb-1">Preferred Time *</label>
+                        <select required id="booking-time" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 bg-white focus:outline-none focus:border-gold">
+                            <option value="09:00 AM">09:00 AM</option>
+                            <option value="11:00 AM">11:00 AM</option>
+                            <option value="01:00 PM">01:00 PM</option>
+                            <option value="03:00 PM">03:00 PM</option>
+                            <option value="05:00 PM">05:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-slate-dark mb-1">Full Name *</label>
+                    <input type="text" placeholder="e.g. Maria Santos" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white focus:outline-none focus:border-gold">
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-slate-dark mb-1">Contact Number (Mobile / GCash) *</label>
+                    <input type="tel" placeholder="09XXXXXXXXX" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white focus:outline-none focus:border-gold">
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-slate-dark mb-1">Payment Method Preference</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <label class="p-2 border rounded-xl border-slate-200 bg-white flex flex-col items-center justify-center text-center cursor-pointer hover:border-gold text-xs">
+                            <input type="radio" name="payment" value="Pay at Salon" checked class="mb-1 text-gold">
+                            <span>Pay at Salon</span>
+                        </label>
+                        <label class="p-2 border rounded-xl border-slate-200 bg-white flex flex-col items-center justify-center text-center cursor-pointer hover:border-gold text-xs">
+                            <input type="radio" name="payment" value="GCash" class="mb-1 text-gold">
+                            <span>GCash</span>
+                        </label>
+                        <label class="p-2 border rounded-xl border-slate-200 bg-white flex flex-col items-center justify-center text-center cursor-pointer hover:border-gold text-xs">
+                            <input type="radio" name="payment" value="Bank / Card" class="mb-1 text-gold">
+                            <span>Online Payment</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-slate-dark mb-1">Special Notes or Tattoo Inspiration Request</label>
+                    <textarea rows="2" placeholder="Let us know if you have specific requests or tattoo size preference..." class="w-full px-4 py-2 rounded-xl border border-slate-300 bg-white focus:outline-none focus:border-gold"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 bg-botanical text-white font-bold uppercase tracking-wider rounded-xl hover:bg-botanical-dark transition-colors gold-shadow mt-2">
+                    Confirm & Send Booking
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Booking Confirmation Toast / Modal -->
+    <div id="confirmation-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-cream rounded-3xl max-w-sm w-full p-6 text-center space-y-4 border border-gold/40 shadow-2xl">
+            <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center text-2xl">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-botanical-dark">Booking Received!</h3>
+            <p class="text-xs text-slate-muted leading-relaxed">
+                Thank you! Marvie & team have received your request. We will SMS/call you shortly at your provided phone number to confirm your time slot.
+            </p>
+            <div class="p-3 bg-white rounded-xl border border-gold/20 text-xs text-slate-dark font-medium">
+                Direct Contact: <strong class="text-botanical-dark">09176334415</strong>
+            </div>
+            <button onclick="closeConfirmationModal()" class="w-full py-2.5 bg-gold text-white font-bold rounded-xl hover:bg-gold-dark text-xs uppercase tracking-wider">
+                Done
+            </button>
+        </div>
+    </div>
+
+    <!-- Direct Messenger Quick Modal -->
+    <div id="messenger-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 text-center space-y-4 border border-blue-200 shadow-2xl relative">
+            <button onclick="closeMessengerModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="w-14 h-14 rounded-full bg-blue-100 text-blue-600 mx-auto flex items-center justify-center text-2xl">
+                <i class="fa-brands fa-facebook-messenger"></i>
+            </div>
+            <h3 class="font-serif text-xl font-bold text-slate-dark">Chat with Marvie's Beauty Lounge</h3>
+            <p class="text-xs text-slate-muted">Send us a direct Facebook message for quick inquiries regarding hair rebond rates, massage schedules, or tattoo design quotes!</p>
+            <div class="space-y-2">
+                <a href="https://m.me" target="_blank" onclick="closeMessengerModal()" class="block w-full py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 text-xs uppercase tracking-wider">
+                    Open Messenger App
+                </a>
+                <button onclick="closeMessengerModal()" class="block w-full py-2 text-xs text-slate-500 font-semibold">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Embedded Application JavaScript Logic -->
+    <script>
+        // Set default minimum date selector to today
+        document.addEventListener("DOMContentLoaded", function() {
+            const dateInput = document.getElementById("booking-date");
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.setAttribute('min', today);
+                dateInput.value = today;
+            }
+        });
+
+        // Toggle Mobile Navigation Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Switch Service Tabs
+        function switchServiceTab(category) {
+            const cards = document.querySelectorAll('.service-card');
+            const btns = document.querySelectorAll('.service-tab-btn');
+
+            btns.forEach(btn => {
+                btn.classList.remove('bg-botanical', 'text-white', 'shadow');
+                btn.classList.add('text-slate-muted');
+            });
+
+            const activeBtn = document.getElementById(`tab-btn-${category}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-botanical', 'text-white', 'shadow');
+                activeBtn.classList.remove('text-slate-muted');
+            }
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Filter Portfolio Gallery
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+
+            filterBtns.forEach(btn => {
+                btn.classList.remove('bg-botanical', 'text-white');
+                btn.classList.add('bg-white', 'text-slate-dark');
+            });
+
+            event.target.classList.remove('bg-white', 'text-slate-dark');
+            event.target.classList.add('bg-botanical', 'text-white');
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+
+        // Modal Open/Close Controls
+        function openBookingModal(serviceName = '') {
+            const modal = document.getElementById('booking-modal');
+            const select = document.getElementById('modal-service-select');
+            
+            if (serviceName && select) {
+                for (let option of select.options) {
+                    if (option.value.includes(serviceName) || serviceName.includes(option.value)) {
+                        option.selected = true;
+                        break;
+                    }
+                }
+            }
+            modal.classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('booking-modal').classList.add('hidden');
+        }
+
+        function openMessengerModal() {
+            document.getElementById('messenger-modal').classList.remove('hidden');
+        }
+
+        function closeMessengerModal() {
+            document.getElementById('messenger-modal').classList.add('hidden');
+        }
+
+        function closeConfirmationModal() {
+            document.getElementById('confirmation-modal').classList.add('hidden');
+        }
+
+        // Form Submit Handler
+        function handleBookingSubmit(event) {
+            event.preventDefault();
+            closeBookingModal();
+            document.getElementById('confirmation-modal').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
